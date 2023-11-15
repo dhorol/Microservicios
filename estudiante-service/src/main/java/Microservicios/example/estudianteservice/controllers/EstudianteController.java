@@ -6,11 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import org.springframework.http.ResponseEntity;
+
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -29,7 +27,7 @@ public class EstudianteController {
         return ResponseEntity.ok(estudiantes);
     }
 
-    @PostMapping
+    @PostMapping("/")
     public void guardarEstudiante(@RequestBody EstudianteEntity estudiante){
         estudianteService.guardarEstudiante(estudiante);
     }
