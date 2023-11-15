@@ -32,14 +32,6 @@ spring:
           uri: lb://cuota-service
           predicates:
             - Path=/cuota/**
-        - id: matricula-service
-          uri: lb://matricula-service
-          predicates:
-            - Path=/matricula/**
-        - id: mensualidad-service
-          uri: lb://mensualidad-service
-          predicates:
-            - Path=/mensualidad/**
         - id: notas-service
           uri: lb://notas-service
           predicates:
