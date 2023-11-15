@@ -35,4 +35,4 @@ spring:
         - id: notas-service
           uri: lb://notas-service
           predicates:
-            - Path=/examenes/**
+            - Path=/notas/**
