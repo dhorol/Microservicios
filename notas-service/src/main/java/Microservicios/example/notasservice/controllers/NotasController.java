@@ -13,8 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/examenes")
-@CrossOrigin(origins = "http://localhost:3000")
+
 public class NotasController {
 
     @Autowired

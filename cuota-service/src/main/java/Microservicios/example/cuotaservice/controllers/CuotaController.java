@@ -15,8 +15,9 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/cuotas")
-@CrossOrigin(origins = "http://localhost:3000")
+
 public class CuotaController {
 
     @Autowired
