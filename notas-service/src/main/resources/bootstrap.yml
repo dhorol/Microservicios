@@ -4,17 +4,24 @@ spring:
       aditional-paths: src/main/java
   application:
     name: notas-service
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8081
+      uri: http://localhost:8081/
   datasource:
+    plataform: postgres
     driver-class-name: org.postgresql.Driver
+    dbname: notas-service
     url: jdbc:postgresql://localhost:5432/notas-service
     username: postgres
     password: shinis
-    jpa:
-      show-sql: true
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        ddl-auto: create
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+

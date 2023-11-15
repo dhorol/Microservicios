@@ -28,7 +28,7 @@ public class EstudianteController {
         return ResponseEntity.ok(estudiantes);
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<?> guardarEstudiante(@RequestBody EstudianteEntity estudiante) {
         try {
             estudianteService.guardarEstudiante(estudiante);

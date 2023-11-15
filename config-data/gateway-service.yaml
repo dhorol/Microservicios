@@ -31,8 +31,8 @@ spring:
         - id: cuota-service
           uri: lb://cuota-service
           predicates:
-            - Path=/cuota/**
+            - Path=/cuotas/**
         - id: notas-service
           uri: lb://notas-service
           predicates:
-            - Path=/notas/**
+            - Path=/examenes/**
