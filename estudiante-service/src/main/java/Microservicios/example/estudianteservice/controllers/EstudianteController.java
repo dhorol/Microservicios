@@ -2,6 +2,7 @@ package Microservicios.example.estudianteservice.controllers;
 import Microservicios.example.estudianteservice.entities.EstudianteEntity;
 import Microservicios.example.estudianteservice.services.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+
 @RequestMapping("/estudiantes")
 public class EstudianteController {
 
@@ -27,9 +28,15 @@ public class EstudianteController {
         return ResponseEntity.ok(estudiantes);
     }
 
-    @PostMapping("/")
-    public void guardarEstudiante(@RequestBody EstudianteEntity estudiante){
-        estudianteService.guardarEstudiante(estudiante);
+    @PostMapping
+    public ResponseEntity<?> guardarEstudiante(@RequestBody EstudianteEntity estudiante) {
+        try {
+            estudianteService.guardarEstudiante(estudiante);
+            return ResponseEntity.status(HttpStatus.CREATED).body("Estudiante guardado con éxito");
+        } catch (Exception e) {
+            // Manejo de la excepción, por ejemplo, si falla la inserción en la base de datos
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al guardar el estudiante");
+        }
     }
 
     @GetMapping("/{id}")
